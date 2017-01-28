@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>QualityBox</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="//use.fontawesome.com/14c71d3de0.js"></script>
+  <style>
+  <!--
+  body {
+      font: 400 15px Lato, sans-serif;
+      line-height: 1.8;
+      /*color: #818181;*/
+  }
+  h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      color: #303030;
+      font-weight: 600;
+      margin-bottom: 30px;
+  }
+  h3 {
+    color: #375793;
+  }
+  h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      color: #303030;
+      font-weight: 400;
+      margin-bottom: 30px;
+  }
+  #support h4 {
+      text-transform: uppercase;
+  }
+  .jumbotron {
+      background-image: url(https://freephile.org/w/images/f/f5/Mt_blanc.jpg);
+      background-repeat: no-repeat;
+      background-position: -600px -400px;
+      background-color: #375793;
+      color: #fff;
+      padding: 100px 25px;
+      font-family: Montserrat, sans-serif;
+  }
+
+  .jumbotron a:link    {color:#fff; background:#2963A2; text-decoration:underline;}
+  .jumbotron a:visited {color:#B2B9BF; background:#2963A2; text-decoration:underline;}
+  .jumbotron a:hover   {color:#fff; background:#2963A2; text-decoration:none; font-weight:bold;}
+  .jumbotron a:active  {color:green; background:#2963A2; text-decoration:none;}
+  
+  .jumbotron h2 {color:white; text-shadow: 2px 2px #181367;}
+  
+  .container-fluid {
+      padding: 60px 50px;
+  }
+  .bg-grey {
+      background-color: #f6f6f6;
+  }
+  .logo-small {
+      color: #375793;
+      font-size: 3em;
+  }
+  .logo {
+      color: #375793;
+      font-size: 8em;
+  }
+  .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+  }
+  .thumbnail img {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 10px;
+  }
+  .carousel-control.right, .carousel-control.left {
+      background-image: none;
+      color: #375793;
+  }
+  .carousel-indicators li {
+      border-color: #375793;
+  }
+  .carousel-indicators li.active {
+      background-color: #375793;
+  }
+  .item h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      font-weight: 400;
+      font-style: italic;
+      margin: 70px 0;
+  }
+  .item span {
+      font-style: normal;
+  }
+  .panel {
+      border: 1px solid #375793; 
+      border-radius:0 !important;
+      transition: box-shadow 0.5s;
+  }
+  .panel:hover {
+      box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+  }
+  .panel-footer .btn:hover {
+      border: 1px solid #375793;
+      background-color: #fff !important;
+      color: #375793;
+  }
+  .panel-heading {
+      color: #fff !important;
+      background-color: #375793 !important;
+      padding: 25px;
+      border-bottom: 1px solid transparent;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+  }
+  .panel-footer {
+      background-color: white !important;
+  }
+  .panel-footer h3 {
+      font-size: 32px;
+  }
+  .panel-footer h4 {
+      color: #aaa;
+      font-size: 14px;
+  }
+  .panel-footer .btn {
+      margin: 15px 0;
+      background-color: #375793;
+      color: #fff;
+  }
+  .navbar {
+      margin-bottom: 0;
+      background-color: #375793;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+  }
+  .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: #375793 !important;
+      background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+  }
+  /* this is temporary while we rebuild the logo */
+  .navbar-brand>img {
+    display: block;
+    height: 46px;
+    margin-top: -13px;
+  }
+  
+  footer .glyphicon {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #375793;
+  }
+  .slideanim {visibility:hidden;}
+  .slide {
+      animation-name: slide;
+      -webkit-animation-name: slide;
+      animation-duration: 1s;
+      -webkit-animation-duration: 1s;
+      visibility: visible;
+  }
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  /* kate can't handle this
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+  }
+*/
+
+html {
+  font-size: 16px;
+}
+.pricing-table * {
+  list-style: none; 
+  line-height: 1;
+  text-align: center !important;
+}
+.title { 
+  border-radius:10px 10px 0 0; 
+  font-size:4.5rem; 
+  font-weight: 600; 
+}
+.pricing-table .title { 
+  background-color: #fff; 
+  padding: 1.625rem 1.25rem; 
+  text-align: center; 
+  color: #375793;
+}
+.pricing-table .title span {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 300;
+}
+.pricing-table.most-popular .most-popular-title {
+  padding: .9375rem;
+  border-radius: 10px 10px 0 0;
+  font-weight: 300;
+  background-color: #375793;
+  border: none;
+  color: #fff;
+}
+.pricing-table .price {
+  background-color: #e2e9f0;
+  padding: 1.25rem;
+  text-align: center;
+  color: #2d3339;
+  font-weight: 700;
+  font-size: 1.125rem;
+  border-top: 1px solid #c4d2df;
+  border-bottom: 1px solid #c4d2df;
+}
+.pricing-table .bullet {
+  background-color: #fff;
+  padding: 1.25rem;
+  text-align: center;
+  color: #333;
+  font-size: 1.125rem;
+  font-weight: 400;
+  border-bottom: solid 1px #d1dce7;
+}
+.pricing-table .btn {
+  text-align: center;
+}
+a:hover {
+  cursor: pointer;
+}
+a:active, a:hover {
+  outline: 0;
+}
+.jumbotron .btn {
+  display: inline-block;
+}
+.btn {
+  display:block;
+}
+.btn a {
+  text-decoration:none;
+  color: #fff !important;
+}
+
+  </style>
+
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage"><img src="img/logo.png" /></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#story">STORY</a></li>
+        <li><a href="#support">SUPPORT</a></li>
+        <li><a href="#features">FEATURES</a></li>
+        <li><a href="#pricing">PRICING</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron">
+  <h2>QualityBox is a turn-key solution to enterprise knowledge</h2>
+  Migrate your wiki today! <a href="#contact">Call for a free quote</a><br />
+  and get a free <a href="https://freephile.org/wikireport/" target="_new">report on your current wiki</a>. 
+  
+  <br />
+  <br />
+  <a href="/wiki/QualityBox/pricing" title="Get Started NOW!" class="btn btn-lg btn-primary" style="color:white;text-decoration:none;">Get Started NOW!</a>
+</div>
+
+
+<!-- Container (About Section) -->
+<div id="about" class="container-fluid">
+  <div class="row">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-5">
+      <h3><i class="fa fa-lg fa-pull-left fa-rocket" aria-hidden="true"></i>Built-in Performance</h3> Sites hosted on QualityBox are automatically optimized for peak performance, making them blazingly fast.
+    </div>
+    <div class="col-xs-5">
+      <h3><i class="fa fa-lg fa-pull-left fa-shield" aria-hidden="true"></i>Automatic Updates</h3> QualityBox handles all of your MediaWiki and security updates automatically so you don't have to.
+    </div>
+    <div class="col-xs-1"></div>
+  </div><!-- end row -->
+
+  <div class="row">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-5">
+      <h3><i class="fa fa-lg fa-pull-left fa-bar-chart" aria-hidden="true"></i>Traffic Scaling</h3> Going Viral? No problem.  QualityBox easily scales to handle up to 20x your daily traffic.
+    </div>
+    <div class="col-xs-5">
+      <h3><i class="fa fa-lg fa-pull-left fa-upload" aria-hidden="true"></i>Nightly Backup</h3> QualityBox automatically backs up your site every night at no additional cost so you can rest easy.
+    </div>
+    <div class="col-xs-1"></div>
+  </div><!-- end row -->
+
+  <div class="row">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-5">
+      <h3><i class="fa fa-lg fa-pull-left fa-life-ring" aria-hidden="true"></i>MediaWiki Experts</h3> Our MediaWiki experts are on call to help, so you don't have to waste time searching forums and blogs for answers.
+    </div>
+    <div class="col-xs-5">
+      <h3><i class="fa fa-lg fa-pull-left fa-clock-o" aria-hidden="true"></i>Dedicated Support</h3> QualityBox support is on call to ensure that your MediaWiki site runs smoothly.
+    </div>
+    <div class="col-xs-1"></div>
+  </div><!-- end row -->
+</div>
+
+
+
+<!-- Container (Story Section) -->
+<div id="story" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>Story</h2><br>
+      <h4>The short story?  We love wikis.</h4><br>
+      <div class='embedvideo ev_right autoResize' style=' width: 646px;''><div class='embedvideowrap' style='width: 640px;'><iframe src="//www.youtube.com/embed/Xe1TZaElTAs?" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe></div></div>
+      <p>
+        After years of helping companies implement, upgrade, integrate and otherwise deploy complex web applications across a variety of internal and external infrastructures, <a href="https://eQuality-Tech.com" target="_new">eQuality Technology</a> came to realize that there was literally nobody addressing the need for a turn-key, enterprise-quality MediaWiki solution. At the same time, the demand for such a solution grew and grew from the ever-increasing complexity and sophistication of the MediaWiki system.  MediaWiki is developed in a Service-Oriented Architecture (SOA). While SOA is a good choice for enterprise architecture, it's hardly a good choice for smaller or part-time practitioners.  Also, the price-sensitive hosting industry forcibly restricts hosting companies from offering a service that requires intensive experience with the application.  To make MediaWiki deployments coherent across a broad spectrum of use cases (and to keep our own sanity), we developed the QualityBox as an automated solution, relying on the power of <a href="https://freephile.org/wiki/Ansible" target="_blank">Ansible</a>. We developed a turn-key solution called QualityBox that provides a fully-furnished enterprise <a href="https://freephile.org/wiki/MediaWiki">MediaWiki</a>. Our service is unique offering a customized fully operational first-class environment.  
+      </p>
+
+      <br><button class="btn btn-default btn-lg">Get in Touch</button>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-heart logo"></span>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="container-fluid bg-grey">
+  <div class="row">
+    <div class="col-sm-4">
+      <span class="logo slideanim img-responsive"><img src="https://freephile.org/w/images/thumb/a/a0/GlossyEqualSign.jpg/240px-GlossyEqualSign.jpg" alt="logo of equality technology"></span>
+      <!-- span class="logo slideanim img-responsive"><img src="https://freephile.org/w/images/0/02/Eqt.logo.leo.png" alt="logo of equality technology"></span -->
+    </div>
+    <div class="col-sm-8">
+      <h2>Built by eQuality Technology</h2><br>
+      <h4><strong>MISSION:</strong> Bring the power of collaboration into the hands of everyone.</h4><br>
+      <p><strong>VISION:</strong> Just like you can simply edit WikiPedia, you should be free to collaborate with colleagues, peers, and members of your group. Leave the software stack management, provisioning and performance to us. Leverage the free and open source system that powers one of the global top-ten websites without an army of engineers.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Container (Support Section) -->
+<div id="support" class="container-fluid text-center">
+  <h2>SUPPORT</h2>
+  <h4>What we offer</h4>
+  <br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <span class="fa fa-newspaper-o logo-small"></span>
+      <h4>Tips</h4>
+      <p>Sign up for our <a href="https://equality-tech.com/civicrm/mailing/subscribe?reset=1&gid=3">newsletter</a> to keep abreast of developments and unique tips</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="fa fa-share-alt-square logo-small"></span>
+      <h4>Public Discourse</h4>
+      <p>Find and Share insights with the <a href="https://discourse.equality-tech.com" target="_new">QualityBox Community</a></p>
+    </div>
+    <div class="col-sm-4">
+      <span class="fa fa-support logo-small"></span>
+      <h4>Private Support</h4>
+      <p>Each customer has a private channel in our <a href="https://discourse.equality-tech.com" target="_new">QualityBox Community</a></p>
+    </div>
+  </div>
+  <br><br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <span class="fa fa-github logo-small"></span>
+      <h4>Code</h4>
+      <p>QualityBox is a free software project. You can get the source code under the terms of the GNU AGPL license at our <a href="https://github.com/freephile/qb" target="_new">github repo</a></p>
+    </div>
+    <div class="col-sm-4">
+      <span class="fa fa-wikipedia-w logo-small"></span>
+      <h4>Compatibility</h4>
+      <p>QualityBox is totally compatible with all versions of MediaWiki software</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="fa fa-handshake-o logo-small"></span>
+      <h4 style="color:#303030;">Partners</h4>
+      <p>We're buildinig a network of global partners to bring you local service and expertise; wherever you are located.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Container (Features Section) -->
+<div id="features" class="container-fluid bg-grey">
+  <h2>Features</h2><br>
+  <h4>Why you need a QualityBox</h4>
+  <h3><span class="mw-headline" id="Feature_Complete">Feature Complete</span></h3>
+  <p>While we will continuously add features, the QualityBox is already the most feature complete wiki on the planet. It offers everything you need for immediate productive use.
+  </p>
+  <h3><span class="mw-headline" id="Customizable">Customizable</span></h3>
+  <p>You can make your QualityBox do things that are custom to your organization. Whether it means adding extra extensions, or whether you want us to fully integrate some aspect of your infrastructure, we can tailor the QualityBox to your specific needs.
+  </p>
+  <h3><span class="mw-headline" id="Affordable">Affordable</span></h3>
+  <p>While it's enterprise ready, it comes at a mini-prise price.  The complete stack is provisioned on free software so we have no licensing costs to pass on to our customers.  The only costs we have are for our engineering talent and operations staff.  That cost is expensed across the entire client base, providing you with expert engineering talent at a fraction of the cost that it would take to hire the expertise in-house.  And, our underlying hosting partners are the best in the business - providing uncompromising value.
+  </p>
+  <h3><span class="mw-headline" id="Turnkey">Turnkey</span></h3>
+  <p>Cloud-hosted, the QualityBox comes online in seconds.  Just pay for the service, and leave everything else up to us.  We'll keep the platform secured, configured, backed up, enhanced, upgraded, monitored and balanced.  As a customer, you can quickly view a dashboard for reports and graphic historical charts. The easy-to-use administration tools let you add users and do other functions with simple clicks.  There is nothing to download, nothing to install; all you need is an internet connection.  Access the QualityBox from home, work or while flying at 30,000 feet.
+  </p>
+  <h3><span class="mw-headline" id="QualityBox_Details">QualityBox Details</span></h3>
+  <p>Each QualityBox is a fully managed Virtual Private Server (VPS). It comes with 100% dedicated hardware resources, including CPU, RAM and disk space, which means that each VPS is never competing with any other account for any resources. There are different size boxes depending on your needs. See <a href="#pricing" title="QualityBox pricing">pricing</a> for details.
+  </p>
+  <h3><span class="mw-headline" id="Sample_QualityBox_Features">Sample QualityBox Features</span></h3>
+  <ul>
+    <li> CPU: Four dedicated cores of an Intel Xeon CPU E5-2650L v3 @ 1.80GHz</li>
+    <li> RAM: 8 GB dedicated RAM</li>
+    <li> Storage: 80 GB on a dedicated Solid-State-Disk</li>
+    <li> Data transfer: 5 TB / Month</li>
+  </ul>
+  <p>and</p>
+  <ul>
+    <li> Unrestricted server resources within the VPS</li>
+    <li> private networking</li>
+    <li> Solid-state-disk storage (very fast disks)</li>
+    <li> Dedicated web server, database server, mail server</li>
+    <li> Dedicated (static) IP address</li>
+    <li> Memcached</li>
+    <li> NodeJS, Java/ElasticSearch, FFMpeg and other complimentary software services</li>
+    <li> Daily Full backups of all files and databases</li>
+    <li> Weekly Offsite backups (snapshots) of the entire host</li>
+  </ul>
+  <p>These are just examples, see <a href="#pricing" title="QualityBox pricing">pricing</a> for more box sizes, or <a href="#contact">contact us</a> to discuss your specific deployment needs. </p>
+  <h3><span class="mw-headline" id="Fully_Managed">Fully Managed</span></h3>
+  <p>We maintain, and upgrade the server Operating System, Web Server, Modules, Database Server, as well as all components delivering the MediaWiki Service-Oriented Architecture. 
+  </p>
+  <h3><span class="mw-headline" id="You.27re_invited">You're invited</span></h3>
+  <p>We provide ssh access, with sudo privileges.  Be advised that changes to the software environment are completely logged and may be reverted by subsequent updates to the QualityBox platform.  If complete control of the environment is desired, we can deploy a QualityBox to your infrastructure (and we can still provide updates in some cases).
+  </p>
+  <h3><span class="mw-headline" id="World_Class_Support">World Class Support</span></h3>
+  <p>We have not outsourced support.  In fact, we're focused on providing a service that is so reliable and proven that the only type of support calls we get are "How to" questions.  Our MediaWiki experts are here to help you with your implementation questions.
+  </p>
+  <h3><span class="mw-headline" id="One_Site_or_Many">One Site or Many</span></h3>
+  <p>The QualityBox supports as many websites as you want to throw at it.  Larger boxes are obviously equipped to handle the responsiveness that your users deserve. Multiple domain names can be pointed at the same box as "aliases" or each domain can have it's own separate document root, i.e. customizable.
+  </p>
+  <h3><span class="mw-headline" id="Important_Information">Important Information</span></h3>
+  <p><a target="_new" href="https://eQuality-Tech.com">eQuality Technology</a> can import existing content, systems, data and information into your QualityBox to make a transition more immediately effective.  Change isn't easy, but with your new information system fully loaded with existing documentation and information sources, we can make your users more encouraged and even excited about change.
+  </p>
+  <h3><span class="mw-headline" id="Training_Wheels_Included">Training Wheels Included</span></h3>
+  <p><a target="_new" href="https://eQuality-Tech.com">eQuality Technology</a> can provide onsite and online training to maximize the productivity of your team.  The QualityBox is incredibly easy to use, but it's also powerful.  Like any power tool, it's that much more effective when used expertly.  Let us jump-start your use of the QualityBox with a series of training sessions.
+  </p>
+</div>
+
+<!-- Container (Pricing Section) -->
+<div id="pricing" class="container-fluid">
+  <h2>Pricing</h2><br>
+  <div class="row">
+    <div class="col-xs-12">
+      <h2 class="pricing-header">Pick a MediaWiki Hosting Plan That's Right for You</h2>
+      <div class="pricing-subheader">
+        Fast, awesome, and affordable are just some of the words our customers use to describe our managed MediaWiki hosting plans. Check out what we have to offer below, and get started today.
+      </div>
+    </div>
+  </div> <!-- row -->
+
+  
+  <!-- alt style 
+  <div class="row slideanim">
+  <form>
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>5</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>1-5</strong> Sites</p>
+          <p><strong>2 GB</strong> RAM</p>
+          <p><strong>Two</strong> CPUs</p>
+          <p><strong>40 GB</strong> SSD</p>
+          <p><strong>3 TB</strong> Transfer</p>
+        </div>
+        <div class="panel-footer">
+          <h3>$299</h3>
+          <h4>per month</h4>
+          <button class="btn btn-lg" type="submit" formaction="https://equality-tech.com/civicrm/contribute/transact?reset=1&id=1">Sign Up</button>
+        </div>
+      </div>      
+    </div>
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>5</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>1-5</strong> Sites</p>
+          <p><strong>2 GB</strong> RAM</p>
+          <p><strong>Two</strong> CPUs</p>
+          <p><strong>40 GB</strong> SSD</p>
+          <p><strong>3 TB</strong> Transfer</p>
+        </div>
+        <div class="panel-footer">
+          <h3>$299</h3>
+          <h4>per month</h4>
+          <button class="btn btn-lg" type="submit" formaction="https://equality-tech.com/civicrm/contribute/transact?reset=1&id=1">Sign Up</button>
+        </div>
+      </div>      
+    </div>
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>5</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>1-5</strong> Sites</p>
+          <p><strong>2 GB</strong> RAM</p>
+          <p><strong>Two</strong> CPUs</p>
+          <p><strong>40 GB</strong> SSD</p>
+          <p><strong>3 TB</strong> Transfer</p>
+        </div>
+        <div class="panel-footer">
+          <h3>$299</h3>
+          <h4>per month</h4>
+          <button class="btn btn-lg" type="submit" formaction="https://equality-tech.com/civicrm/contribute/transact?reset=1&id=1">Sign Up</button>
+        </div>
+      </div>      
+    </div>
+  </form>
+  </div -->
+  
+  <!-- original style -->
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <ul class="pricing-table">
+        <li class="bullet"></li>
+        <li class="title">5 <span>Sites</span></li>
+        <li class="price">$299<br /><span class="small">per month</span></li>
+        <li class="bullet">Up To 5 Sites</li>
+        <li class="bullet">2 GB RAM</li>
+        <li class="bullet">Two CPUs</li>
+        <li class="bullet">40 GB SSD</li>
+        <li class="bullet">3 TB transfer</li>
+        <li class="btn"><a href="https://equality-tech.com/civicrm/contribute/transact?reset=1&id=1" class="btn btn-lg btn-primary">Sign Up</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4">
+      <ul class="pricing-table most-popular">
+        <li class="bullet most-popular-title">Most Popular</li>
+        <li class="title">10 <span>Sites</span></li>
+        <li class="price"><strike>$599</strike> &nbsp; $499<br /><span class="small">per month</span></li>
+        <li class="bullet">Up To 10 Sites</li>
+        <li class="bullet">8 GB RAM</li>
+        <li class="bullet">Four CPUs</li>
+        <li class="bullet">80 GB SSD</li>
+        <li class="bullet">5 TB transfer</li>
+        <li class="btn"><a href="https://equality-tech.com/civicrm/contribute/transact?reset=1&id=1" class="btn btn-lg btn-primary">Sign Up</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4">
+      <ul class="pricing-table">
+        <li class="bullet"></li>
+        <li class="title">20 <span>Sites</span></li>
+        <li class="price"><strike>$1599</strike> &nbsp; $999<br /><span class="small">per month</span></li>
+        <li class="bullet">Up To 20 Sites</li>
+        <li class="bullet">32 GB RAM</li>
+        <li class="bullet">Twelve CPUs</li>
+        <li class="bullet">320 GB SSD</li>
+        <li class="bullet">7 TB transfer</li>      
+        <li class="btn"><a href="https://equality-tech.com/civicrm/contribute/transact?reset=1&id=1" class="btn btn-lg btn-primary">Sign Up</a></li>
+      </ul>
+    </div>
+    <p>
+    The number of "Sites" is a relative sizing guide for your QualityBox.  Several factors determine the best sizing. You can upgrade at any time. Need more than 20 Sites? We're happy to talk with you  <a href="#contact">Contact Us</a>. Please review the Terms Of Service carefully.
+    </p>    
+  </div> <!--slide-->
+</div> <!-- row -->
+
+
+<!-- Container (Contact Section) -->
+<div id="contact" class="container-fluid bg-grey">
+  <h2 class="text-center">CONTACT</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p><a href="https://equality-tech.com/contact" target="_new">Contact us</a> and we'll get back to you within 24 hours.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Boston, USA</p>
+      <p><span class="glyphicon glyphicon-phone"></span> 978-225-0471</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> info@eQuality-Tech.com</p>
+    </div>
+  </div>
+</div>
+
+<div id="googleMap" style="height:400px;width:100%;"></div>
+
+<!-- Add Google Maps -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoZcHpn6oxoLKpVo8Z8x_CP0fEo0EGBZM"></script>
+<script>
+var myCenter = new google.maps.LatLng(42.8295970, -70.8540010);
+
+function initialize() {
+var mapProp = {
+  center:myCenter,
+  zoom:3,
+  scrollwheel:false,
+  draggable:false,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker = new google.maps.Marker({
+  position:myCenter,
+  });
+
+marker.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>&copy; eQuality Technology, LLC<br />
+  photo by <a href="https://www.flickr.com/photos/richardwest/3450796870/" target="_new">Richard West</a>: a morning shot of the south face of Mont Blanc, the highest mountain in France. <a href="https://creativecommons.org/licenses/by/2.0/" target="_new">CC BY SA</a>
+  </p>
+</footer>
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+
+</body>
+</html>
+
